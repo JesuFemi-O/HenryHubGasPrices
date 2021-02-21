@@ -1,0 +1,61 @@
+{
+    "name":"Henry Hub Gas prices Data",
+    "title":"Daily and Monthly Gas prices",
+    "description":"Tabular data generated from scrapping gas prices",
+    "version":"1.0.0",
+    "sources":[
+        {
+            "title":"Daily Gas prices",
+            "path":"https://www.eia.gov/dnav/ng/hist/rngwhhdD.htm"
+        },
+        {
+            "title":"Monthly Gas prices", 
+            "path":"https://www.eia.gov/dnav/ng/hist/rngwhhdM.htm"
+        }
+    ],
+    "resources":[
+        {
+            "name":"Daily Data",
+            "path":"Data/daily.csv",
+            "schema":{
+                "fields":[
+                    {
+                        "name":"Date",
+                        "type":"Date",
+                        "description":"Date of the month in format d/m/y"
+                    },
+                    {
+                        "name":"price",
+                        "type":"integer",
+                        "description":"Daily gas price"
+                    }
+                ]
+            }
+        },
+        {
+            "name":"Monthl Data",
+            "path":"Data/monthly.csv",
+            "schema":{
+                "fields":[
+                    {
+                        "name":"Date",
+                        "type":"Date",
+                        "description":"month at which gas price had a patiicular price"
+                    },
+                    {
+                        "name":"price",
+                        "type":"integer",
+                        "description":"monthly gas price"
+                    }
+                ]
+            }
+        }
+    ],
+    "contributors":[
+        {
+            "title":"Emmanuel Ogunwede",
+            "email":"ogunwedeemmanuel@gmail.com",
+            "role":"Author"
+        }
+    ]
+}

@@ -33,5 +33,5 @@ def get_monthly_data():
 if __name__=="__main__":
     print("starting now...")
     data = get_monthly_data()
-    write_to_csv(data, "Data/monthly.csv")
+    write_to_csv(data, "Tabular_data/Data/monthly.csv")
     print("Data Scrapped Successfully...")

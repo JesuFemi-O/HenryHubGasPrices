@@ -35,5 +35,5 @@ def get_daily_data():
 if __name__=="__main__":
     print("starting now...")
     data = get_daily_data()
-    write_to_csv(data, "Data/daily.csv")
+    write_to_csv(data, "Tabular_data/Data/daily.csv")
     print("Data Scrapped Successfully...")
