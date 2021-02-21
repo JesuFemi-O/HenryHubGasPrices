@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
-from My_Utils import normalize_date, get_first_day, genrate_daily_series, update_date_series, unpack
+from ScrapperUtils import (normalize_date, get_first_day, genrate_daily_series, 
+                            update_date_series, unpack, write_to_csv)
 
 def get_daily_data():
     url = "https://www.eia.gov/dnav/ng/hist/rngwhhdD.htm"
@@ -28,13 +28,12 @@ def get_daily_data():
             unpack(csv_data, data)
         except:
             continue
-
-        df = pd.DataFrame(csv_data)
     
-    return df
+    return csv_data
 
 
 if __name__=="__main__":
     print("starting now...")
-    df = get_daily_data()
-    print(df)
+    data = get_daily_data()
+    write_to_csv(data, "Data/daily.csv")
+    print("Data Scrapped Successfully...")

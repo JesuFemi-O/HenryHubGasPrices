@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
-from My_Utils import normalize_date, generate_monthly_series, update_date_series, unpack
+from ScrapperUtils import normalize_date, generate_monthly_series, update_date_series, unpack, write_to_csv
 
 
 def get_monthly_data():
@@ -28,11 +27,11 @@ def get_monthly_data():
         else:
             pass
     
-    df = pd.DataFrame(csv_data)
 
-    return df
+    return csv_data
 
 if __name__=="__main__":
     print("starting now...")
-    df = get_monthly_data()
-    print(df)
+    data = get_monthly_data()
+    write_to_csv(data, "Data/monthly.csv")
+    print("Data Scrapped Successfully...")
